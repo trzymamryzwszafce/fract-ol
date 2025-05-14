@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract-ol.h                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: szmadeja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: szmadeja <szmadeja@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 16:51:47 by szmadeja          #+#    #+#             */
-/*   Updated: 2025/04/16 19:34:24 by szmadeja         ###   ########.fr       */
+/*   Created: 2024/12/05 01:40:21 by szmadeja          #+#    #+#             */
+/*   Updated: 2024/12/10 00:59:50 by szmadeja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACT_OL_H
-# define FRACT_OL_H
+#include "libft.h"
 
-# include <mlx.h>
-# include <math.h>
-
-struct	s_data
+char	*ft_strdup(const char *s)
 {
-	int	i;
-}		t_data;
+	int		i;
+	char	*dup;
 
-#endif
+	i = 0;
+	while (s[i])
+		i++;
+	dup = malloc(i + 1);
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}

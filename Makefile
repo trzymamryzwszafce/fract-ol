@@ -14,6 +14,10 @@ OBJS = $(SRCS:.c=.o)
 MLX_DIR = ./minilibx-linux
 MLX_LIB = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
 MLX_INC = -I$(MLX_DIR)
+# Libft Library
+#LIBFT_DIR = ./libft
+#LIBFT_LIB = $(LIBFT_DIR)/libft.a
+#LIBFT_LIB = -I$(LIBFT_DIR)
 # Printf Library
 PRINTF_DIR = ./ft_printf
 PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
