@@ -1,51 +1,59 @@
 # Compiler
 CC = cc
+
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I includes -I libft -I $(MLX_DIR)
+
 # Executable Name
 NAME = fract_ol
+
 # Source Files (all .c files in the current directory)
 SRCS = $(wildcard *.c)
+
 # Object Files
 OBJS = $(SRCS:.c=.o)
-# Headers
-#HEADERS =
-# MiniLibX Library
+
+# MiniLibX
 MLX_DIR = ./minilibx-linux
 MLX_LIB = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
-MLX_INC = -I$(MLX_DIR)
-# Libft Library
-#LIBFT_DIR = ./libft
-#LIBFT_LIB = $(LIBFT_DIR)/libft.a
-#LIBFT_LIB = -I$(LIBFT_DIR)
-# Printf Library
-PRINTF_DIR = ./ft_printf
-PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
-PRINTF_INC = -I$(PRINTF_DIR)
+
+# Libft
+LIBFT_DIR = ./libft
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
+LIBFT_LNK = -L$(LIBFT_DIR) -lft
+
 # Default target
-all: $(MLX_DIR)/libmlx.a $(PRINTF_LIB) $(NAME)
-# Build so_long
+all: $(MLX_DIR)/libmlx.a $(LIBFT_LIB) $(NAME)
+
+# Build executable
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLX_LIB) -L$(PRINTF_DIR) -lftprintf
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLX_LIB) $(LIBFT_LNK)
+
 # Compile object files
 %.o: %.c
-	$(CC) $(CFLAGS) $(MLX_INC) $(PRINTF_INC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
+
 # Build MiniLibX
 $(MLX_DIR)/libmlx.a:
 	make -C $(MLX_DIR)
-# Build ft_printf
-$(PRINTF_LIB):
-	make -C $(PRINTF_DIR)
+
+# Build Libft
+$(LIBFT_LIB):
+	make -C $(LIBFT_DIR)
+
 # Clean object files
 clean:
-	rm -f $(OBJS) $(NAME)
-	make clean -C $(PRINTF_DIR)
-	make clean -C $(MLX_DIR)
+	rm -f $(OBJS)
+	make -C $(LIBFT_DIR) clean
+	make -C $(MLX_DIR) clean
+
 # Remove executables and object files
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C $(PRINTF_DIR)
+	make -C $(LIBFT_DIR) fclean
+
 # Rebuild everything
 re: fclean all
-# Phony targets (not actual files)
+
 .PHONY: all clean fclean re
+

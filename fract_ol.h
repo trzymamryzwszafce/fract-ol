@@ -14,7 +14,7 @@
 # define FRACT_OL_H
 
 # include "mlx.h"
-//# include "libft.h"
+# include "./libft/libft.h"
 # include <unistd.h> 
 # include <stdio.h>
 # include <stdlib.h>
