@@ -23,14 +23,27 @@
 # define ERROR_MESSAGE \
 	"Enter:./fractol mandelbrot  or  ./fractol julia <value1> <value2>\n"
 
-struct	s_data
+# define WIDTH	800
+# define HEIGHT	800
+
+typedef struct s_img
 {
-	int	i;
-}		t_data;
+	void	*img_ptr;
+	char	*pxl_ptr;
+	int		bpp;
+	int		endian;
+	int		line_len;
+}		t_img;
 
+typedef struct s_fractal
+{
+	char	*name;
+	void	*mlx_connect;
+	void	*mlx_window;
+	t_img	img;
+}		t_fractal;
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putstr_fd(char *s, int fd);
-
 
 #endif
