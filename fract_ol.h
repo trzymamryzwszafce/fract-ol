@@ -45,5 +45,6 @@ typedef struct s_fractal
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putstr_fd(char *s, int fd);
+void    fractal_init(t_fractal *fractal);
 
 #endif
