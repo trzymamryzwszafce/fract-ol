@@ -5,7 +5,7 @@ CC = cc
 CFLAGS = -Wall -I includes -I libft -I $(MLX_DIR)
 
 # Executable Name
-NAME = fract_ol
+NAME = fractol
 
 # Source Files (all .c files in the current directory)
 SRCS = events.c init.c main.c math.c render.c
