@@ -8,7 +8,7 @@ CFLAGS = -Wall -I includes -I libft -I $(MLX_DIR)
 NAME = fract_ol
 
 # Source Files (all .c files in the current directory)
-SRCS = $(wildcard *.c)
+SRCS = events.c init.c main.c math.c render.c
 
 # Object Files
 OBJS = $(SRCS:.c=.o)

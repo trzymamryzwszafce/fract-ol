@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szmadeja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/19 18:41:17 by szmadeja          #+#    #+#             */
+/*   Updated: 2025/05/19 18:41:19 by szmadeja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fract_ol.h"
 
 static void	malloc_error(void)
@@ -9,7 +21,7 @@ static void	malloc_error(void)
 static void	data_init(t_fractal *fractal)
 {
 	fractal->esc_value = 4;
-	fractal->iterations = 40;
+	fractal->iterations = 85;
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;

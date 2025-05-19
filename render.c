@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szmadeja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/19 18:43:11 by szmadeja          #+#    #+#             */
+/*   Updated: 2025/05/19 18:43:14 by szmadeja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fract_ol.h"
 
 static void	pixel_put(int x, int y, t_img *img, double color)
@@ -38,7 +50,7 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 		z = sum(square(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->esc_value)
 		{
-			color = map(i, BLACK, PURPLE, fractal->iterations);
+			color = map(i, BLACK, WHITE, fractal->iterations);
 			pixel_put(x, y, &fractal->img, color * i);
 			return ;
 		}
