@@ -2,7 +2,7 @@
 CC = cc
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror -I includes -I libft -I $(MLX_DIR)
+CFLAGS = -Wall -I includes -I libft -I $(MLX_DIR)
 
 # Executable Name
 NAME = fract_ol
