@@ -25,7 +25,7 @@ static void	mandel_or_julia(t_value *z, t_value *c, t_fractal *fractal)
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
 		c->x = fractal->julia_x;
-		c->y = fractal->julia_y;
+		c->y = fractal->julia_y * -1;
 	}
 	else
 	{

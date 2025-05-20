@@ -26,13 +26,13 @@ double	atodbl(char *s)
 
 	i = 0;
 	f = 0;
-	sign = +1;
+	sign = 1;
 	pow = 1;
 	while ((*s >= 9 && *s <= 13) || 32 == *s)
 		s++;
 	while ('+' == *s || '-' == *s)
 		if ('-' == *s++)
-			sign = -sign;
+			sign *= -1;
 	while (*s != '.' && *s)
 		i = (i * 10) + (*s++ - 48);
 	if ('.' == *s)
